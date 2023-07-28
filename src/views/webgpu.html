@@ -1,0 +1,30 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>http://www.webgl3d.cn/</title>
+</head>
+
+<body>
+    <canvas id="webgpu" width="500" height="500" style="background-color: #000;"></canvas>
+    <script type="module">
+        // 1. 配置webGPU上下文
+
+        // 浏览器请求GPU适配器
+        const adapter = await navigator.gpu.requestAdapter()
+        // GPU设备对象
+        const device = await adapter.requestDevice()
+        console.log('适配器adapter', adapter)
+        console.log('GPU设备对象device', device)
+
+        const canvas = document.getElementById('webgpu')
+        const context = canvas.getContext('webgpu')
+        const format = navigator.gpu.getPreferredCanvasFormat()
+        context.configure({
+            device: device, // WebGPU渲染器使用的GPU设备对象
+            format: format // 颜色格式
+        })
+    </script>
+</body>
+
+</html>
