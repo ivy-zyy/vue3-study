@@ -1,5 +1,5 @@
 # vue3-ts-demo
-## 学习
+## 学习1
 ## Project setup
 ```
 pnpm install
